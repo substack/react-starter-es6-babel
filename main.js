@@ -1,14 +1,18 @@
-var React = require('react')
-var App = React.createClass({
-  getInitialState: function () { return { n: 0 } },
-  render: function () {
+import React from 'react'
+
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = { n: 0 }
+  }
+  render () {
     return <div>
       <h1>clicked {this.state.n} times</h1>
-      <button onClick={this.handleClick}>click me!</button>
+      <button onClick={this.handleClick.bind(this)}>click me!</button>
     </div>
-  },
-  handleClick: function () {
+  }
+  handleClick () {
     this.setState({ n: this.state.n + 1 })
   }
-})
+}
 React.render(<App />, document.querySelector('#content'))
