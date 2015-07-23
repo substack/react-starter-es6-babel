@@ -1,11 +1,13 @@
-# react-starter
+# react-starter-babel-es6
 
 bare-bones [react](https://facebook.github.io/react/) starter
-using [reactify](https://npmjs.com/package/reactify) for jsx
+using [babelify](https://npmjs.com/package/babelify) for es6 and jsx
 under [browserify](http://browserify.org)/[watchify](https://npmjs.com/package/watchify)
 with [npm run scripts](http://substack.net/task_automation_with_npm_run)
 
-[view the starter demo](http://substack.neocities.org/react_starter.html)
+forked from [react-starter](https://github.com/substack/react-starter)
+
+[view the starter demo](http://substack.neocities.org/react_starter_babel_es6.html)
 
 # quick start
 
@@ -23,19 +25,23 @@ $ npm start
 # starter code
 
 ``` js
-var React = require('react')
-var App = React.createClass({
-  getInitialState: function () { return { n: 0 } },
-  render: function () {
+import React from 'react'
+
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = { n: 0 }
+  }
+  render () {
     return <div>
       <h1>clicked {this.state.n} times</h1>
-      <button onClick={this.handleClick}>click me!</button>
+      <button onClick={this.handleClick.bind(this)}>click me!</button>
     </div>
-  },
-  handleClick: function () {
+  }
+  handleClick () {
     this.setState({ n: this.state.n + 1 })
   }
-})
+}
 React.render(<App />, document.querySelector('#content'))
 ```
 
