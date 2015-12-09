@@ -26,6 +26,7 @@ $ npm start
 
 ``` js
 import React from 'react'
+import ReactDOM from 'react-dom'
 
 class App extends React.Component {
   constructor () {
@@ -42,7 +43,7 @@ class App extends React.Component {
     this.setState({ n: this.state.n + 1 })
   }
 }
-React.render(<App />, document.querySelector('#content'))
+ReactDOM.render(<App />, document.querySelector('#content'))
 ```
 
 # contributing
